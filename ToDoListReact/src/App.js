@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
 import Layout from "./components/Layout";
-// import rtlPlugin from 'stylis-plugin-rtl';
+import rtlPlugin from 'stylis-plugin-rtl';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { prefixer } from 'stylis';
