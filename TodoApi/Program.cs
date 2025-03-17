@@ -78,11 +78,11 @@ app.UseCors("AllowSpecificOrigin");
 
 builder.Services.AddEndpointsApiExplorer();
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -139,6 +139,7 @@ app.MapGet("/{id}", [Authorize] ([FromRoute] int id, ToDoDbContext service) =>
 {
     return service.Items.FirstOrDefault(x => x.Id == id);
 });
+app.MapGet("/", ()=>"hello");
 
 app.MapGet("/getTasks", [Authorize] async (ToDoDbContext service) => { return await service.Items.ToListAsync(); });
 app.MapGet("/allUsers", (ToDoDbContext service) => { return service.Users.ToListAsync(); });
