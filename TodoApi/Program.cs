@@ -39,6 +39,7 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 // builder.Services.AddSingleton<ToDoDbContext>();
 builder.Services.AddOpenApi();
 // builder.Services.AddEndpointsApiExplorer();
+// swagger
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
