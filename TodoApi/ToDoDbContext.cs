@@ -21,13 +21,13 @@ public partial class ToDoDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
+        => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .UseCollation("utf8mb4_0900_ai_ci")
-            .HasCharSet("utf8mb4");
+            .UseCollation("utf8_general_ci")
+            .HasCharSet("utf8");
 
         modelBuilder.Entity<Item>(entity =>
         {
@@ -44,9 +44,6 @@ public partial class ToDoDbContext : DbContext
 
             entity.ToTable("users");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
             entity.Property(e => e.Email)
                 .HasMaxLength(45)
                 .HasColumnName("email");
