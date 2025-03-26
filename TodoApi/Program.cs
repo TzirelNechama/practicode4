@@ -69,7 +69,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:3000")
+        builder => builder.WithOrigins("https://client-practicode.onrender.com")
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });
