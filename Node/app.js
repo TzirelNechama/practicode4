@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 renderApi.auth('rnd_rXM3J09WAwq4SoHsVet4iJeYQHtF');
 
 // Endpoint לקבלת רשימת האפליקציות
-app.get('/apps', async (req, res) => {
+app.get("", async (req, res) => {
     try {
         const { data } = await renderApi.listServices({ includePreviews: 'true', limit: '20' });
         res.json(data);
